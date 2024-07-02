@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,17 +19,441 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato';
+}
+
+  /* Product detail page css */
+
+/* Dropdown menu styles */
+#dropdown-menu {
+  width: 100%;
+  height: auto;
+  
+}
+
+
+.image2 {
+ 
+  width: 320px;
+  height: auto;
+ 
+}
+
+
+@media (min-width: 768px) {
+  .flex-md-row {
+      flex-direction: row;
+  }
+
+  .flex-md-col {
+      flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-lg-row {
+      flex-direction: row;
+  }
+
+  .flex-lg-col {
+      flex-direction: column;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .flex-lg-wrap {
+      flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image2 {
+      width: calc(50% - 8px); 
+      height: 325px; 
+  }
+}
+@media (min-width: 1280px) {
+  .image2 {
+      width: calc(50% - 8px); 
+      height: 400px; 
+  }
+}
+
+
+@media (max-width: 1023px) {
+  .image2 {
+      width: 75%; 
+      height: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .image2 {
+      width: 100%; 
+      height: 400px;
+  }
+}
+@media (max-width: 400px) {
+  .image2 {
+      width: 100%; 
+      height: 350px; 
+  }
+}
+
+@media (max-width: 375px) {
+.testwidth {
+    width: 70px;
+}
+}
+
+.product-color-button {
+  @apply w-8 h-8 rounded;
+}
+
+@media (min-width: 1024px) {
+  .product-color-button {
+      @apply lg:w-12 lg:h-12;
+  }
+}
+
+.navigation-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center; 
+}
+
+.navigation-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.navigation-dots .dot.active {
+  background-color: white;
+}
+
+
+.control-btn {
+  display: none;
+}
+
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.overflow-hidden::-webkit-scrollbar {
+  display: none; 
+}
+
+.overflow-hidden {
+  scrollbar-width: none;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.common-style {
+  @apply flex justify-between mt-[2px];
+}
+
+.common-divider {
+  @apply h-[0.5px] bg-black rounded-xl mt-[2px];
 }
 
 @layer utilities {
+
+  input[type="text"]:focus~.input-text {
+    @apply transform -translate-y-5 -translate-x-1 scale-75;
+  }
+
+  input[type="number"]:focus~.input-text {
+    @apply transform -translate-y-5 -translate-x-1 scale-75;
+  }
+
+  @layer base {
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .shadow-box {
+    box-shadow: 0px 0px 10px -2px #80808066;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  .sidebar-open {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Adjust the opacity and color as needed */
+    /* Add other styles to make it look like a modal */
+  }
+
+  .line-circle::after {
+    content: "OR";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid darkgray;
+    font-size: 10px;
+    border-radius: 50%;
+    line-height: 20px;
+    padding-left: 2px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: #fff;
+
+  }
+
+  .star {
+    font-size: 16px;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
+
+  .title-refund {
+    color: #34B5B3;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .refund-span-li {
+    font-weight: 800;
+    font-size: 17px;
+  }
+
+  .refund-ans {
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    text-align: justify;
+  }
+
+  .refund-ques {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .pop-up-del {
+    position: fixed;
+    background-color: lightgrey;
+    opacity: 0.5;
+  }
+
+  .r-list {
+    letter-spacing: 0.5px;
+    text-align: justify;
+    margin-bottom: 6px;
+  }
+
+  /* Privacy Page css */
+
+  .privacy-head {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .pri-point span {
+    font-weight: 600;
+    text-decoration: underline;
+    padding-right: 5px;
+  }
+
+  .pri-point {
+    margin-bottom: 6px;
+  }
+
+  .pri-head-para {
+    margin-bottom: 10px;
+  }
+
+  /* Terms and Condition page */
+
+  .term-head span {
+    text-decoration: underline;
+  }
+
+  .term-head {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .term-para {
+    margin-bottom: 10px;
+  }
+
+  /* Faq Page  */
+
+  .faq-main-h {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .faq-titi-col {
+    color: #000042;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .faq-h {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  .faq-p {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+
+  .faq_li {
+    margin-bottom: 5px;
+  }
+
+  /* cart page save css */
+
+  .box-save {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 18px;
+    background-color: #fff;
+    right: -7px;
+    transform: rotate(43deg);
+    top: 0;
+  }
+
+  /* @media only screen and (max-width:768px){
+    .slideCoupon{
+      width: 70%;
+    }
+  } */
+
+  @media only screen and (max-width: 500px) {
+
+    /* .slideCoupon{
+      width: 100%;
+    } */
+
+    .pri-head-para {
+      font-size: 14px;
+    }
+
+    .privacy-head {
+      font-size: 16px;
+    }
+
+    .pri-point {
+      font-size: 14px;
+    }
+
+    .privacy-list {
+      font-size: 14px;
+    }
+
+    .title-refund {
+      font-size: 18px;
+    }
+
+    .refund-span-li {
+      font-size: 16px;
+    }
+
+    .refund-ques {
+      font-size: 18px;
+    }
+
+    .faq-p {
+      font-size: 13px;
+    }
+
+    .faq_li {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .faq-titi-col {
+      margin-bottom: 7px;
+    }
+
+    .faq-main-h {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+  }
 }
+
+@layer utilities {
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+  
+    scrollbar-width: none;
+   
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-color-button {
+      @apply lg:w-12 lg:h-12;
+  }
+}
+.drawer {
+  width: 333px;
+   transition: transform 0.7s ease-in-out;
+  z-index: 50;
+}
+
+.drawer.hidden {
+  transform: translateX(-333px); /* Move the drawer out of the screen */
+}
+
+@media (max-width: 640px) {
+  .drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+  }
+}
+
+/* @media (min-width: 768px) {
+   .drawer {
+    width: 333px; }}  */
+ 
+.z-index {
+  z-index: 2000;
+}
+.z-index1 {
+  z-index: 5000;
+}
+
