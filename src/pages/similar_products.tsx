@@ -397,7 +397,7 @@ const SimilarProductPage = () => {
                 productImage={product.productImage}
                 title={product.title}
                 description={product.description}
-                salePrice={`₹ ${product.salePrice.toLocaleString("en-IN")}`}
+                salePrice={`₹ ${product.salePrice?.toLocaleString("en-IN")}`}
                 rating={product.rating}
                 color={product.color}
                 productId={product.productId}

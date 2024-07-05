@@ -28,6 +28,14 @@ import { it } from "node:test";
 import { useCart } from "@/Context/CartContext";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import {
+  reviews,
+  bestSellers,
+  newArrivals,
+  under500,
+  getContent,
+  category,
+} from "../../home-page-data.json";
 
 interface CustomerssayProps {
   comment: any;
@@ -114,20 +122,21 @@ const Homescreen: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState<number>(0);
-  const [customerData, setCustomerData] = useState<CustomerssayProps[]>([]);
+  const [customerData, setCustomerData] =
+    useState<CustomerssayProps[]>(reviews);
 
   const { setCart }: any = useCart();
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}home/getRecenetReviews`)
-      .then((response) => {
-        setCustomerData(response?.data?.recentReviews);
-      })
-      .catch((error) => {
-        console.log("Error fetching data", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.NEXT_PUBLIC_API_URL}home/getRecenetReviews`)
+  //     .then((response) => {
+  //       setCustomerData(response?.data?.recentReviews);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data", error);
+  //     });
+  // }, []);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollStepDesktop = 650;
@@ -137,9 +146,9 @@ const Homescreen: React.FC = () => {
   const containerRef3 = useRef<HTMLDivElement>(null);
   const scrollStep2 = 250;
   const [currIndex, setCurrIndex] = useState(0);
-  const [newArrival, setNewArrival] = useState<NewArrival[]>([]);
-  const [bestSeller, setBestSeller] = useState<NewArrival[]>([]);
-  const [underFive, setUnderFive] = useState<NewArrival[]>([]);
+  const [newArrival, setNewArrival] = useState<NewArrival[]>(newArrivals);
+  const [bestSeller, setBestSeller] = useState<NewArrival[]>(bestSellers);
+  const [underFive, setUnderFive] = useState<NewArrival[]>(under500);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     if (typeof window !== "undefined") {
@@ -153,20 +162,20 @@ const Homescreen: React.FC = () => {
     setShowLoginModal(true);
   };
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}home/products`)
-      .then((response) => {
-        const data = response.data.productsDataByCriteria;
-        setNewArrival(data.newArrivals);
-        setBestSeller(data.isBestSeller);
-        setUnderFive(data.under500);
-        console.log(data.newArrivals);
-      })
-      .catch((error) => {
-        console.log("Error fetching data", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.NEXT_PUBLIC_API_URL}home/products`)
+  //     .then((response) => {
+  //       const data = response.data.productsDataByCriteria;
+  //       // setNewArrival(data.newArrivals);
+  //       // setBestSeller(data.isBestSeller);
+  //       // setUnderFive(data.under500);
+  //       console.log(data.newArrivals);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data", error);
+  //     });
+  // }, []);
 
   const [cartMessage, setCartMessage] = useState<string | null>(null);
 
@@ -433,62 +442,62 @@ const Homescreen: React.FC = () => {
 
   const [search, setSearch] = useState("");
 
-  const [categories, setCategories] = useState<{ [key: string]: string[] }>({});
+  const [categories, setCategories] = useState<any>(category);
   const [selectedGender, setSelectedGender] = useState<string>("Men");
 
-  const fetchCategoriesData = async () => {
-    let data = JSON.stringify({});
+  // const fetchCategoriesData = async () => {
+  //   let data = JSON.stringify({});
 
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: `${process.env.NEXT_PUBLIC_API_URL}home/getCategories`,
-      headers: {},
-      data: data,
-    };
+  //   let config = {
+  //     method: "get",
+  //     maxBodyLength: Infinity,
+  //     url: `${process.env.NEXT_PUBLIC_API_URL}home/getCategories`,
+  //     headers: {},
+  //     data: data,
+  //   };
 
-    try {
-      const response = await axios.request(config);
-      console.log("Categories", JSON.stringify(response.data));
-      const initialGender = response.data.category.Gender;
-      setSelectedGender(initialGender);
-      setCategories(response.data.category.Categories);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   try {
+  //     const response = await axios.request(config);
+  //     console.log("Categories", JSON.stringify(response.data));
+  //     const initialGender = response.data.category.Gender;
+  //     setSelectedGender(initialGender);
+  //     setCategories(response.data.category.Categories);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchCategoriesData();
-  }, []);
+  // useEffect(() => {
+  //   fetchCategoriesData();
+  // }, []);
 
   const handleFrameButtonClick = (category: string, selectedGender: string) => {
     console.log("Clicked on category:", category);
     console.log("Selected gender:", selectedGender);
   };
 
-  const [getContent, setGetContent] = useState<GetContent[]>([]);
+  // const [getContent, setGetContent] = useState<GetContent[]>([]);
 
-  const fetchGetContent = async () => {
-    try {
-      let config = {
-        method: "get",
-        maxBodyLength: Infinity,
-        url: `${process.env.NEXT_PUBLIC_API_URL}home/getContent`,
-        headers: {},
-      };
+  // const fetchGetContent = async () => {
+  //   try {
+  //     let config = {
+  //       method: "get",
+  //       maxBodyLength: Infinity,
+  //       url: `${process.env.NEXT_PUBLIC_API_URL}home/getContent`,
+  //       headers: {},
+  //     };
 
-      const response = await axios.request(config);
-      console.log(JSON.stringify(response.data));
-      setGetContent(response.data.recentContents);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     const response = await axios.request(config);
+  //     console.log(JSON.stringify(response.data));
+  //     setGetContent(response.data.recentContents);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchGetContent();
-  }, []);
+  // useEffect(() => {
+  //   fetchGetContent();
+  // }, []);
 
   const genderImageMap: { [key in Gender]: string } = {
     Men: Images.menframe,
@@ -500,7 +509,7 @@ const Homescreen: React.FC = () => {
   return (
     <>
       <div className="max-w-screen-2xl m-auto">
-        <Header setSearch={setSearch} />
+        <Header />
         <div className="flex justify-center mt-[40px] xs:mx-[20px] xl:mx-[70px]">
           <Carosel />
         </div>
@@ -509,12 +518,12 @@ const Homescreen: React.FC = () => {
             return (
               <div className="flex xs:flex-col xl:flex-row md:justify-between mt-10 xs:mx-[20px] xl:mx-[72px]  items-center">
                 <div className=" xl:w-[640px]">
-                  <p className="bg-black-">
-                    <h1 className="font-extrabold xs:text-xl lg:text-[24px] text-PictonBlue">
+                  <div className="bg-black-">
+                    <h1 className="font-extrabold xs:text-xl lg:text-[24px] text-[#32315D]">
                       {content.tagLine}
                     </h1>
                     <p className="border border-black my-3 xs:w-full xl:w-[610px]"></p>
-                  </p>
+                  </div>
                   <h1 className="font-medium text-black  xs:text-lg md:text-2xl xs:block- md:flex- xl:block-">
                     <span className="">
                       {content.title.split(" ").slice(0, 3).join(" ")}
@@ -582,9 +591,9 @@ const Homescreen: React.FC = () => {
           }
         })}
         <div className="xs:mx-[20px] lg:mx-[72px] mt-[72px]">
-          <h1 className="font-extrabold xs:text-xl md:text-2xl">
+          {/* <h1 className="font-extrabold xs:text-xl md:text-2xl">
             {Strings.SHOP_BY_CATEGORY}
-          </h1>
+          </h1> */}
 
           <Tab.Group>
             <Tab.List className="mt-3 flex xs:space-x-2 md:space-x-16 flex-wrap border-b border-black relative">
@@ -606,37 +615,6 @@ const Homescreen: React.FC = () => {
                 ))}
             </Tab.List>
             <Tab.Panels>
-              {Object.keys(categories).map((selectedGender, index) => (
-                <Tab.Panel className={""} key={index}>
-                  <div className="flex items-center">
-                    <Image
-                      onClick={handleScrollRight1}
-                      src={Images.Lefticon}
-                      alt="/"
-                      height={16}
-                      width={16}
-                      className=" mr-4 cursor-pointer"
-                    />
-
-                    <div
-                      ref={containerRef1}
-                      className="mt-5  xs:overflow-x-auto flex xs:gap-x-8 md:gap-x-10 lg:gap-x-16  lg:no-scrollbar"
-                    >
-                      {categories[selectedGender].map(
-                        (category, categoryIndex) => (
-                          <Frame
-                            key={categoryIndex}
-                            image={genderImageMap[selectedGender as Gender]}
-                            buttonText={category}
-                            buttonUrl={""}
-                            gender={selectedGender}
-                          />
-                        )
-                      )}
-                    </div>
-                  </div>
-                </Tab.Panel>
-              ))}
               {/* <Tab.Panel className={""}>
                 <div className="mt-5 xs:overflow-x-auto xs:space-x-4  xl:space-x-16 flex xl:justify-between lg:no-scrollbar">
                   {framesforwomen.map((frame, index) => (
@@ -706,7 +684,7 @@ const Homescreen: React.FC = () => {
                       key={index}
                     >
                       <div className="">
-                        <p className="text-xl font-extrabold text-PictonBlue">
+                        <p className="text-xl font-extrabold text-[#32315D]">
                           {currentItem.brands}
                           <br />
                           {currentItem.SKU}
@@ -816,10 +794,10 @@ const Homescreen: React.FC = () => {
           </div>
         </div>
         <div className="h-[512px] py-14 xs:pl-4 md:pl-12 bg-Darkblue overflow-hidden mt-5">
-          <h1 className="font-extrabold text-2xl ml-8 text-white space-x-2 flex">
-            <p> {Strings.ALL_UNDER}</p>
+          <div className="font-extrabold text-2xl ml-8 text-white space-x-2 flex">
+            <div> {Strings.ALL_UNDER}</div>
             <span className="text-[#FFC107]">{Strings.FIVE_HUNDRED}</span>
-          </h1>
+          </div>
           <div className="flex items-center">
             <Image
               onClick={handleScrollRight2}
@@ -867,7 +845,7 @@ const Homescreen: React.FC = () => {
                 className="xs:my-[40px] xl:my-[110px] xs:mx-[20px] xl:mx-[72px] flex xs:flex-col xl:flex-row xl:justify-between"
               >
                 <div className="xs:mb-10 xl:mb-0">
-                  <h1 className="font-extrabold xl:leading-10 xs:text-2xl xl:text-[32px] text-PictonBlue xs:w-full xl:w-[480px] ">
+                  <h1 className="font-extrabold xl:leading-10 xs:text-2xl xl:text-[32px] text-[#32315D] xs:w-full xl:w-[480px] ">
                     {content.tagLine}
                   </h1>
                   <p className="text-black mt-2 font-normal text-sm xs:w-full xl:w-[420px]">
@@ -877,7 +855,7 @@ const Homescreen: React.FC = () => {
                   <p className="text-black font-normal text-xl">
                     {content.title}
                   </p>
-                  <button className="bg-black hover:bg-PictonBlue text-white font-normal text-xs w-[137px] h-[34px] rounded-[5px] mt-2">
+                  <button className="bg-black hover:bg-[#32315D] text-white font-normal text-xs w-[137px] h-[34px] rounded-[5px] mt-2">
                     {Strings.BOOK_NOW}
                   </button>
                 </div>
@@ -892,7 +870,7 @@ const Homescreen: React.FC = () => {
                 </div> */}
                 <div className="flex xs:justify-center xl:justify-normal">
                   <div className="flex items-center relative">
-                    <div className="absolute xs:top-0 xs:right-0 md:left-0 xl:left-[-65px] xl:top-[70px] xs:h-24 xs:w-24 md:h-24 md:w-24 lg:h-[130px] lg:w-[130px] bg-PictonBlue rounded-full flex text-center px-3 items-center">
+                    <div className="absolute xs:top-0 xs:right-0 md:left-0 xl:left-[-65px] xl:top-[70px] xs:h-24 xs:w-24 md:h-24 md:w-24 lg:h-[130px] lg:w-[130px] bg-[#32315D] rounded-full flex text-center px-3 items-center">
                       <p className="xs:font-medium lg:font-extrabold xs:text-[12px] xl:text-sm text-white">
                         {content.highlightText}
                       </p>
@@ -955,8 +933,8 @@ const Homescreen: React.FC = () => {
             return null;
           }
         })}
-        <div className="mt-20 h-[512px] py-14 xs:pl-4 md:pl-12 bg-[#D2E7EE] overflow-hidden">
-          <h1 className="font-extrabold text-2xl text-black">
+        <div className="mt-20 h-[512px] py-14 xs:pl-4 md:pl-12 bg-[#03384a] overflow-hidden">
+          <h1 className="font-extrabold text-2xl text-white">
             {Strings.BESTSELLERS}
           </h1>
           <div className="flex items-center">
@@ -1055,7 +1033,7 @@ const Homescreen: React.FC = () => {
             <div className=" space-y-2 top-64 z-10 right-2 absolute">
               <button
                 onClick={handleScrollToTop}
-                className="bg-PictonBlue h-12 w-12 rounded-full flex justify-center items-center"
+                className="bg-[#32315D] h-12 w-12 rounded-full flex justify-center items-center"
               >
                 <Image src={Images.Upicon} alt="/" height={16} width={16} />
               </button>

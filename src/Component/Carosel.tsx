@@ -3,29 +3,31 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
-interface SliderItem {
-  id: string;
-  title: string;
-  image: string;
-}
+import { slider } from "../../home-page-data.json";
+
+// interface SliderItem {
+//   id: string;
+//   title: string;
+//   image: string;
+// }
 
 const Carosel = () => {
-  const [slider, setSlider] = useState<SliderItem[]>([]);
+  //   const [slider, setSlider] = useState<SliderItem[]>([]);
 
-  const fetchSliderData = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}home/slider`
-      );
-      setSlider(response.data.sliderData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   const fetchSliderData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `${process.env.NEXT_PUBLIC_API_URL}home/slider`
+  //       );
+  //       setSlider(response.data.sliderData);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-  useEffect(() => {
-    fetchSliderData();
-  }, []);
+  //   useEffect(() => {
+  //     fetchSliderData();
+  //   }, []);
 
   return (
     <div className="w-full">

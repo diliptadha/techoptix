@@ -20,7 +20,7 @@ const Customerssay: React.FC<Customerssay> = ({
 }) => {
   return (
     <div className="customer" style={style}>
-      <div className="xs:w-[310px] xs:h-[285px] md:w-[600px] xl:w-[600px] xl:h-[285px] rounded-[10px] bg-[#D2E7EE] xs:p-4 xl:p-12 flex items-center">
+      <div className="xs:w-[310px] xs:h-[285px] md:w-[600px] xl:w-[600px] xl:h-[285px] rounded-[10px] bg-[#1f7591] xs:p-4 xl:p-12 flex items-center">
         <div>
           <div className="flex justify-between items-center">
             <div className="font-extrabold h-[90px] text-9xl text-white">
