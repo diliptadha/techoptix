@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
 import { Images } from "@/constant";
 import Link from "next/link";
@@ -82,7 +83,7 @@ const Product: React.FC<ProductProps> = ({
 
   const [displayColors, setDisplayColors] = useState<string[]>([]);
   const [remainingCount, setRemainingCount] = useState<number>(0);
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     if (otherColors.length > 2) {
       setDisplayColors(otherColors.slice(0, 2));
@@ -108,7 +109,7 @@ const Product: React.FC<ProductProps> = ({
 
       axios.request(config).then((response: { data: any }) => {
         setProductData(response?.data?.productData?.ProductData);
-        setCurrentImage(response?.data?.productData?.ProductData?.productImage);
+        // setCurrentImage(response?.data?.productData?.ProductData?.productImage);
         // console.log(JSON.stringify(response?.data));
       });
     } catch (error) {
@@ -120,35 +121,44 @@ const Product: React.FC<ProductProps> = ({
     getProductData();
   }, [productId]);
 
-  const [originalImage, setOriginalImage] = useState(image);
-  const [currentImage, setCurrentImage] = useState(image);
-  const alternateImage = "/Images/CANNA-2068-BROWN TORTOISE-52-2.png";
-  const handleImageClick = () => {
-    if (
-      productData &&
-      productData?.variantImage &&
-      productData?.variantImage.length > 0
-    ) {
-      setCurrentImage((prevImage) =>
-        prevImage === originalImage
-          ? productData?.variantImage[0]
-          : originalImage
-      );
-    }
-    console.log("dghrhtyhtthtyhrthrt", productData);
-  };
+  // const [originalImage, setOriginalImage] = useState(image);
+  // const [currentImage, setCurrentImage] = useState(image);
+  // const alternateImage = "/Images/CANNA-2068-BROWN TORTOISE-52-2.png";
+  // const handleImageClick = () => {
+  //   if (
+  //     productData &&
+  //     productData?.variantImage &&
+  //     productData?.variantImage.length > 0
+  //   ) {
+  //     setCurrentImage((prevImage) =>
+  //       prevImage === originalImage
+  //         ? productData?.variantImage[0]
+  //         : originalImage
+  //     );
+  //   }
+  //   console.log("dghrhtyhtthtyhrthrt", productData);
+  // };
 
   const handleProductClick = () => {
-    const lowercaseBrand = productData?.brands.toLowerCase().replace(/\s+/g, "-");
-    const lowercaseColor = productData?.frameColor.toLowerCase().replace(/\s+/g, "-");
-    const lowercaseShape = productData?.frameShape.toLowerCase().replace(/\s+/g, "-");
-    const lowercaseCategory = productData?.category.toLowerCase().replace(/\s+/g, "-");
-    const lowercaseGender = productData?.gender.toLowerCase().replace(/\s+/g, "-");
+    const lowercaseBrand = productData?.brands
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    const lowercaseColor = productData?.frameColor
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    const lowercaseShape = productData?.frameShape
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    const lowercaseCategory = productData?.category
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    const lowercaseGender = productData?.gender
+      .toLowerCase()
+      .replace(/\s+/g, "-");
     const lowercaseSKU = productData?.SKU.toLowerCase().replace(/\s+/g, "-");
 
     // Construct the actual route with all lowercase words
     const actualRoute = `/eyewear/${lowercaseCategory}/${lowercaseBrand}-${lowercaseColor}-${lowercaseShape}-${lowercaseGender}-${lowercaseSKU}`;
-
 
     localStorage.setItem("productId", productId);
     localStorage.setItem("subProductId", subProductId);
@@ -165,12 +175,12 @@ const Product: React.FC<ProductProps> = ({
         {/*  iksana.in/eyeglasses/brand-sku-color */}
         <button onClick={handleProductClick}>
           <Image
-            src={currentImage}
+            src={image}
             height={140}
             width={220}
             className="h-32 object-cover"
             alt="/"
-          // className="h-[144px] w-[243px]"
+            // className="h-[144px] w-[243px]"
           />
         </button>
         <div className="absolute- bottom-0- ">
@@ -181,19 +191,19 @@ const Product: React.FC<ProductProps> = ({
           <div className="flex mt-[10px] justify-between items-center font-extrabold ">
             <StarRating rating={rating} />
             <div className="flex space-x-1 items-center ">
-              <button
-                onClick={handleImageClick}
+              <div
+                // onClick={handleImageClick}
                 style={{
                   backgroundColor: color,
                   width: "16px",
                   height: "16px",
                   borderRadius: "100%",
                 }}
-              ></button>
+              ></div>
               {displayColors.map((color, index) => (
                 <button
                   key={index}
-                  onClick={handleImageClick}
+                  // onClick={handleImageClick}
                   style={{
                     backgroundColor: color,
                     width: "16px",

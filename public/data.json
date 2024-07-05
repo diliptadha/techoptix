@@ -27,5 +27,53 @@
       "number": 8291251241,
       "storeImg": "/Images/ikshana_store3_img.jpg"
     }
+  ],
+  "ProductList": [
+    {
+      "productId": "P0000001",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#9D0B31",
+        "productImage": "/Images/CANNA-2068-BROWN TORTOISE-52-2.png",
+        "title": "SCOTT-SC5354",
+        "rating": 1,
+        "price": 400
+      }
+    },
+    {
+      "productId": "SC5354",
+      "data": {
+        "subProductId": "PS0000002",
+        "color": "#6195ED",
+        "productImage": "/Images/CANNA-2068-BROWN TORTOISE-52-2.png",
+        "title": "SCOTT123-SC5354",
+        "rating": 2,
+        "price": 500,
+        "otherColors": ["#76DBB7", "#FCB76E", "#FCG76E", "#9D0B31"]
+      }
+    },
+    {
+      "productId": "P0000001",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#9D0B31",
+        "productImage": "/Images/CANNA-2068-BROWN TORTOISE-52-2.png",
+        "title": "SCOTT-SC5354",
+        "rating": 3,
+        "price": 600
+      }
+    },
+    {
+      "productId": "SC5354",
+      "data": {
+        "subProductId": "PS0000002",
+        "color": "#6195ED",
+        "productImage": "/Images/CANNA-2068-BROWN TORTOISE-52-2.png",
+        "title": "SCOTT123-SC5354",
+        "rating": 4,
+        "price": 700,
+        "otherColors": ["#76DBB7", "#FCB76E", "#FCG76E", "#9D0B31"]
+      }
+    }
   ]
 }

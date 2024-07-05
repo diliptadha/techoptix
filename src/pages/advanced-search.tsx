@@ -7,14 +7,15 @@ import { Footer } from "@/Component/footer";
 import Header from "@/Component/header";
 import Image from "next/image";
 import Link from "next/link";
+import Loader from "@/Component/Loader";
 import Pagination from "react-paginate";
 import Product from "@/Component/Product";
 import ReactPaginate from "react-paginate";
 import Shape from "@/Component/Shape";
-import axios from "axios";
-import { space } from "postcss/lib/list";
 import WhatsAppButton from "@/Component/WhatsAppButton";
-import Loader from "@/Component/Loader";
+import axios from "axios";
+import data from "../../public/data.json";
+import { space } from "postcss/lib/list";
 
 const genders = ["Men", "Women", "Kids", "Unisex"];
 const frameStyles = ["Full Rim", "Rimless", "Half Rim"];
@@ -55,6 +56,7 @@ interface ProductData {
     isNew?: boolean;
   };
 }
+
 interface filterData {
   isFavorite: boolean;
   productId: string;
@@ -347,7 +349,7 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
     { id: 12, image: Images.SHAPE12, title: "Butterfly" },
   ];
 
-  const [productList, setProductList] = useState<ProductData[]>([]);
+  // const [productList, setProductList] = useState<ProductData[]>([]);
   const [prevFilters, setPrevFilters] = useState<any>(null);
   const [filterData, setFilterData] = useState<filterData[]>([]);
   const [filterApplied, setFilterApplied] = useState<boolean>(false);
@@ -471,7 +473,7 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
   const [currentPageTrending, setCurrentPageTrending] = useState(0);
   const perPage = 3;
   const filterDataLength = filterData ? filterData.length : 0;
-  const productListLength = productList ? productList.length : 0;
+  const productListLength = data.ProductList ? data.ProductList.length : 0;
   const pageCountFilter = Math.ceil(
     (filterDataLength || productListLength) / perPage
   );
@@ -479,7 +481,7 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
   const getFilteredDataForCurrentPage = () => {
     const startIndex = currentPageFilter * perPage;
     const endIndex = startIndex + perPage;
-    return (filterApplied ? filterData : productList)?.slice(
+    return (filterApplied ? filterData : data.ProductList)?.slice(
       startIndex,
       endIndex
     );
@@ -724,12 +726,12 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
       let config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: `${process.env.NEXT_PUBLIC_API_URL}product/getProductList?page=1&limit=2`,
+        // url: `${process.env.NEXT_PUBLIC_API_URL}product/getProductList?page=1&limit=2`,
         headers: {},
       };
       const response = await axios.request(config);
       console.log("Product List Data :", JSON.stringify(response.data));
-      setProductList(response.data.productList.data);
+      // setProductList(response.data.productList.data);
     } catch (error) {
       console.log(error);
     }
@@ -976,7 +978,7 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
                 ? `Showing product data ${
                     getFilteredDataForCurrentPage()?.length
                   } of ${
-                    (filterApplied ? filterData : productList)?.length
+                    (filterApplied ? filterData : data.ProductList)?.length
                   } results`
                 : `Showing trending search data ${trendingSearchData.length} of ${trendingSearchData.length} results`}
             </p>
@@ -1075,13 +1077,16 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
             className={`mt-7 md:mx-5 xl:mx-0 flex flex-wrap xs:justify-center lg:justify-start lg:gap-x-3 xl:gap-x-9`}
           >
             {search.trim() === "" ? (
-              (filterApplied ? filterData : productList)?.length > 0 ? (
+              (filterApplied ? filterData : data.ProductList)?.length > 0 ? (
                 getFilteredDataForCurrentPage().map((product, index) => (
                   <Product
                     key={product.productId}
                     image={product.data.productImage}
                     title={product.data.title}
-                    description={product.data.description ?? ""}
+                    description={
+                      (product.data as { description: string }).description ??
+                      ""
+                    }
                     price={`₹${product.data.price.toLocaleString("en-IN")}`}
                     rating={product.data.rating}
                     color={product.data.color}
@@ -1098,7 +1103,11 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
                     }
                     productId={product.productId}
                     subProductId={product.data.subProductId}
-                    variantImages={product.data.variantImage}
+                    variantImages={
+                      "variantImage" in product.data
+                        ? product.data.variantImage
+                        : undefined
+                    }
                     showLoginModal={showLoginModal}
                     isAuthenticated={isAuthenticated}
                     handleToggleFavorite={() =>
@@ -1295,7 +1304,7 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
 
           <div>
             {search === "" &&
-            (filterApplied ? filterData : productList)?.length > 0 ? (
+            (filterApplied ? filterData : data.ProductList)?.length > 0 ? (
               <ReactPaginate
                 previousLabel={
                   <svg
