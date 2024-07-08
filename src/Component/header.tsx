@@ -504,30 +504,9 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
             <input
               className="xs:text-sm md:text-base text-black bg-[#E5E5E4] outline-none xs:w-[260px] md:w-56 h-10 p-4 rounded-[10px] flex items-center"
               style={{ paddingRight: "2.5rem" }}
-              value={search}
-              onChange={handleChange}
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSearch();
-                }
-              }}
+             
             />
-            {showTrendingSearches && (
-              <div className="z-index absolute  w-full bg-white border rounded-md shadow-lg">
-                <p className="p-2 text-gray-500">TRENDING</p>
-                {trendingSearches.map((term, index) => (
-                  <div
-                    key={index}
-                    className="p-2 cursor-pointer hover:bg-gray-100 text-black"
-                    onClick={() => handleTrendingSearchClick(term)}
-                  >
-                    {term}
-                  </div>
-                ))}
-              </div>
-            )}
+           
             <button
               disabled={search.trim() === ""}
               onClick={handleSearch}
