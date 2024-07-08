@@ -64,13 +64,15 @@ export const Footer = () => {
       <div className="flex flex-col lg:flex-row justify-between ">
         <div className="flex flex-col text-left w-full md: lg:w-[530px] xl:w-[700px]">
           <div className="items-center- lg:flext-start- xs:w-[300px] md:w-[400px]- lg:w-full-">
-            <img
-              src={Images.Logo}
-              width={220}
-              height={75}
-              alt="logo"
-              className=""
-            />
+            <Link href={"/"}>
+              <Image
+                src={Images.Logo}
+                alt="/"
+                height={68}
+                width={215}
+                className="xs:w-36 md:w-[215px]"
+              />
+            </Link>
           </div>
           <div className="font-lato font-base xs:text-[18px] text-[26px] text-white mt-8">
             <div>{Strings.THE_BEST_QUALITY}</div>

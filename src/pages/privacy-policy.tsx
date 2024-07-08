@@ -1,14 +1,16 @@
-import { Strings } from "@/constant";
 import "../app/globals.css";
+
 import React, { useState } from "react";
-import Header from "@/Component/header";
+
 import { Footer } from "@/Component/footer";
+import Header from "@/Component/header";
+import { Strings } from "@/constant";
 
 const Privacy = () => {
   const [search, setSearch] = useState("");
   return (
     <>
-      <Header />
+      <Header setSearch={setSearch} />
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8 text-[#32315D] border-b-2 border-[#32315D] pb-2">

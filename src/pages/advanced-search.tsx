@@ -774,7 +774,7 @@ const Listingpage: React.FC<{ filters: Filters }> = ({ filters }) => {
 
   return (
     <div className="list-bg max-w-screen-2xl m-auto">
-      <Header />
+      <Header setSearch={setSearch} />
       <div className="mt-[36px] xs:mx-[20px] xl:mx-[72px]- mx flex">
         <div
           className={`drawer xs:w-[333px] ${isDrawerOpen && "md:hidden"} ${

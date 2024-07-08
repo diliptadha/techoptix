@@ -5,6 +5,14 @@ import "../app/globals.css";
 import { Images, Strings } from "@/constant";
 import LoginModal, { toggleModal } from "@/Component/LoginModal";
 import React, { Fragment, Key, useLayoutEffect, useRef, useState } from "react";
+import {
+  bestSellers,
+  category,
+  getContent,
+  newArrivals,
+  reviews,
+  under500,
+} from "../../home-page-data.json";
 
 import Bestsellers from "@/Component/Bestsellers";
 import Carosel from "@/Component/Carosel";
@@ -28,14 +36,6 @@ import { it } from "node:test";
 import { useCart } from "@/Context/CartContext";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {
-  reviews,
-  bestSellers,
-  newArrivals,
-  under500,
-  getContent,
-  category,
-} from "../../home-page-data.json";
 
 interface CustomerssayProps {
   comment: any;
@@ -509,7 +509,7 @@ const Homescreen: React.FC = () => {
   return (
     <>
       <div className="max-w-screen-2xl m-auto">
-        <Header />
+        <Header setSearch={setSearch} />
         <div className="flex justify-center mt-[40px] xs:mx-[20px] xl:mx-[70px]">
           <Carosel />
         </div>

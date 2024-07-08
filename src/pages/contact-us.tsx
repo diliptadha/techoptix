@@ -43,7 +43,7 @@ const Contactus = () => {
 
   return (
     <>
-      <Header />
+      <Header setSearch={setSearch} />
       <div className="m-5 md:my-10">
         <h1 className="py-5 text-center text-3xl">{ContactUs.CONTACT_US}</h1>
       </div>

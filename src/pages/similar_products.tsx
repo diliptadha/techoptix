@@ -4,10 +4,10 @@ import { Images, Strings } from "@/constant";
 import React, { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
+import Loader from "@/Component/Loader";
 import SimilarProduct from "@/Component/SimilarProduct";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Loader from "@/Component/Loader";
 
 interface ProductData {
   color: any;
@@ -371,7 +371,7 @@ const SimilarProductPage = () => {
           ref={containerRef2}
           className="mt-5 mx-3 overflow-hidden flex space-x-10- w-full overflow-x-scroll no-scrollbar"
         >
-          <div className="">
+          {/* <div className="">
             <div className="relative h-[335px] w-[320px] rounded-[10px] mr-5 md:mr-10">
               <Image
                 src={Images.EXPLORE}
@@ -388,7 +388,7 @@ const SimilarProductPage = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
           {similarProductData &&
             Array.isArray(similarProductData) &&
             similarProductData.map((product, index) => (

@@ -736,7 +736,7 @@ const ProductDetails = () => {
   return (
     <>
       <div>
-        <Header />
+        <Header setSearch={setSearch} />
         {selectedSubProduct && (
           <div className="bg-white px-[2rem] py-[2rem] md:px-[3rem] xl:px-[6rem] p-black mx-auto- md:w-[50%]- lg:w-full-">
             <div className="p-1 bg-white w-full text-lato text-[14px] ">

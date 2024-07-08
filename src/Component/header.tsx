@@ -1,18 +1,40 @@
 "use client";
 
 import { Images, Strings } from "@/constant";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-const Header = () => {
+interface HeaderProps {
+  setSearch: (search: string) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ setSearch }) => {
+  const router = useRouter();
+
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(
     "English"
   );
   const [rotateImage, setRotateImage] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
+  const [cartQuantity, setCartQuantity] = useState([]);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const [search, setSearchLocal] = useState("");
+  const [showTrendingSearches, setShowTrendingSearches] = useState(false);
+  const trendingSearches = [
+    "Contact Lenses",
+    "Eyeglasses for Kids",
+    "Eyeglasses for Men",
+    "Eyeglasses for Women",
+    "Computer Glasses Women",
+    "Computer Glasses Men",
+    "Myopia Control Zesis Lenses",
+    "Myopia Control Zeiss Lenses",
+    "Myopia Control Essilor Lenses",
+  ];
   const [stringsArray, setStringsArray] = useState([
     {
       id: 0,
@@ -111,15 +133,68 @@ const Header = () => {
         },
         brands: {
           submenuData: ["Brands"],
-          brandsheading: [],
+          brandsheading: [
+            "Iksana",
+            "Tom Ford",
+            "Maybach",
+            "Scott",
+            "K&D",
+            "Visibilla",
+            "Zoe Miller",
+            "Page 4",
+            "Swarovski",
+            "Origin Virgin",
+            "Maverick",
+            "Femina Flaunt",
+            "Gotti",
+            "Kosch",
+            "Gucci",
+            "Prada",
+            "Moleskine",
+            "Carrera",
+            "Mozzati",
+            "Intense Focus",
+            "Esprit",
+          ],
         },
         framecolor: {
           submenuData: ["Frame Color"],
-          framecolorheading: [],
+          framecolorheading: [
+            "Black",
+            "Gold",
+            "Transparent",
+            "Brown",
+            "Voilet",
+            "Blue",
+            "Silver",
+            "Gunmetal",
+            "Pink",
+            "Yellow",
+            "Red",
+            "Green",
+            "Tortoise",
+            "Maroon",
+            "Grey",
+            "Purple",
+            "Rosegold",
+            "White",
+          ],
         },
         frameshape: {
           submenuData: ["Frame Shape"],
-          frameshapeheading: [],
+          frameshapeheading: [
+            "AVAIATOR",
+            "BUTTERFLY",
+            "CATEYE",
+            "CLUBMASTER",
+            "HEXAGON",
+            "OVAL",
+            "RECTANGLE",
+            "ROUND",
+            "SQUARE",
+            "GEOMETRIC",
+            "WAYFARER",
+          ],
         },
       },
     },
@@ -329,40 +404,153 @@ const Header = () => {
     setStringsArray(updatedStringsArray);
     setRotateImage(!rotateImage);
   };
+  let tQty = 0;
+  const handleCartPage = () => {
+    if (tQty <= 0) {
+      router.push("/cartEmpty");
+    } else {
+      router.push("/cart");
+    }
+  };
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const storedSearch = localStorage.getItem("searchTerm");
+    if (storedSearch) {
+      setSearchLocal(storedSearch);
+    }
+  }, []);
+
+  const handleChange = (e: any) => {
+    const searchTerm = e.target.value;
+    setSearchLocal(e.target.value);
+    setSearch(e.target.value);
+    if (searchTerm.trim() === "") {
+      localStorage.removeItem("searchTerm");
+      localStorage.removeItem("search");
+    }
+  };
+
+  useEffect(() => {
+    const savedSearchTerm = localStorage.getItem("searchTerm");
+    if (savedSearchTerm) {
+      setSearch(savedSearchTerm);
+      setSearchLocal(savedSearchTerm);
+    }
+  }, []);
+
+  const handleSearch = () => {
+    if (search.trim() !== "") {
+      localStorage.setItem("searchTerm", search);
+      router.push(
+        `/advanced-search?q=${encodeURIComponent(
+          search.toLowerCase().replace(/\s+/g, "-")
+        )}`
+      );
+    }
+  };
+
+  const handleInputFocus = () => {
+    setIsInputFocused(true);
+    setShowTrendingSearches(true);
+  };
+
+  const handleInputBlur = () => {
+    setIsInputFocused(false);
+  };
+
+  const handleTrendingSearchClick = (term: string) => {
+    setSearch(term);
+    setSearchLocal(term);
+    localStorage.setItem("searchTerm", term);
+    router.push(
+      `/advanced-search?q=${encodeURIComponent(
+        term.toLowerCase().replace(/\s+/g, "-")
+      )}`
+    ),
+      setShowTrendingSearches(false);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setShowTrendingSearches(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="max-w-screen-2xl m-auto">
       <div className="flex mt-8 xs:flex-col sm:flex-row sm:justify-between xs:space-y-4 md:space-y-0 items-center xs:mx-4 md:mx-12">
-        <Image
-          src={Images.Logo}
-          alt="/"
-          height={68}
-          width={215}
-          className="xs:w-36 md:w-[215px]"
-        />
+        <Link href={"/"}>
+          <Image
+            src={Images.Logo}
+            alt="/"
+            height={68}
+            width={215}
+            className="xs:w-36 md:w-[215px]"
+          />
+        </Link>
         <div className="xs:space-x-3 sm:space-x-4 flex items-center">
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
             <input
-              className="xs:text-sm md:text-base bg-[#E5E5E4] z-index1 outline-none xs:w-[260px] md:w-56 h-10 p-4 rounded-[10px] flex items-center"
+              className="xs:text-sm md:text-base text-black bg-[#E5E5E4] outline-none xs:w-[260px] md:w-56 h-10 p-4 rounded-[10px] flex items-center"
               style={{ paddingRight: "2.5rem" }}
+              value={search}
+              onChange={handleChange}
+              onFocus={handleInputFocus}
+              onBlur={handleInputBlur}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
             />
-            <Image
-              src={Images.Search}
-              alt="/"
-              height={18}
-              width={18}
-              className="absolute right-4 top-3 "
-            />
+            {showTrendingSearches && (
+              <div className="z-index absolute  w-full bg-white border rounded-md shadow-lg">
+                <p className="p-2 text-gray-500">TRENDING</p>
+                {trendingSearches.map((term, index) => (
+                  <div
+                    key={index}
+                    className="p-2 cursor-pointer hover:bg-gray-100 text-black"
+                    onClick={() => handleTrendingSearchClick(term)}
+                  >
+                    {term}
+                  </div>
+                ))}
+              </div>
+            )}
+            <button
+              disabled={search.trim() === ""}
+              onClick={handleSearch}
+              className="absolute right-4 top-3 transition-transform hover:scale-75 transform"
+            >
+              <Image src={Images.Search} alt="/" height={18} width={18} />
+            </button>
           </div>
-          <div className="relative">
-            <Image
-              src={Images.Bag}
-              alt="/"
-              height={21}
-              width={19}
-              className="xs:w-[16px] md:w-[18px]"
-            />
-            <p className="rounded-full xs:h-2 xs:w-2 md:h-3 md:w-3 bg-[#FF4307] absolute top-0 left-2.5"></p>
+          <div className="relative" onClick={handleCartPage}>
+            <button>
+              <Image
+                src={Images.Bag}
+                alt="/"
+                height={21}
+                width={19}
+                className="w-[24px]"
+              />
+            </button>
+            <div className="rounded-full h-5 w-5 bg-[#FF4307] absolute top-0 right-[-7px] translate-x-0 translate-y-[-50%]">
+              <span className="absolute text-[11px] top-[50%] right-[50%] text-white translate-x-[50%] translate-y-[-50%]">
+                {0}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -371,9 +559,11 @@ const Header = () => {
           {stringsArray.map((item, index) => (
             <div key={index}>
               <div
-                onClick={() => toggleMegaMenu(index)}
-                className={`flex items-center font-normal text-xs text-black cursor-pointer ${
-                  item.megaMenuOpen ? "text-PictonBlue" : ""
+                onMouseEnter={() => toggleMegaMenu(index)}
+                className={`flex items-center font-semibold text-xs  cursor-pointer ${
+                  item.megaMenuOpen
+                    ? "text-PictonBlue font-semibold"
+                    : "text-black"
                 }`}
               >
                 {item.menu}
@@ -411,11 +601,12 @@ const Header = () => {
               item.megaMenuOpen && (
                 <div
                   key={index}
-                  className="w-[700px] h-auto bg-[#F2F2F2] z-index1 absolute top-56 p-5 rounded-[10px] shadow-md"
+                  className="w-[700px] h-auto bg-[#F2F2F2] z-index1 absolute top-64 p-5 rounded-[10px] shadow-md"
+                  onMouseLeave={() => toggleMegaMenu(index)}
                 >
                   <div className="flex justify-between font-normal">
                     <div>
-                      <h1 className="font-bold text-black">
+                      <h1 className="font-bold text-black ">
                         {item.data?.gender.submenuData.map((gender, index) => (
                           <h1 key={index}>{gender}</h1>
                         ))}
@@ -423,7 +614,14 @@ const Header = () => {
                       <ul>
                         {item.data?.gender.genderheading.map(
                           (gender, subIndex) => (
-                            <li key={subIndex}>{gender}</li>
+                            <li key={subIndex}>
+                              <a
+                                href="/advanced-search"
+                                className="hover:text-PictonBlue"
+                              >
+                                {gender}
+                              </a>
+                            </li>
                           )
                         )}
                       </ul>
@@ -437,7 +635,15 @@ const Header = () => {
                       <ul>
                         {item.data?.brands.brandsheading.map(
                           (brands, subIndex) => (
-                            <li key={subIndex}>{brands}</li>
+                            <li key={subIndex}>
+                              {" "}
+                              <a
+                                href="/advanced-search"
+                                className="hover:text-PictonBlue"
+                              >
+                                {brands}{" "}
+                              </a>
+                            </li>
                           )
                         )}
                       </ul>
@@ -453,7 +659,15 @@ const Header = () => {
                       <ul>
                         {item.data?.framecolor.framecolorheading.map(
                           (framecolor, subIndex) => (
-                            <li key={subIndex}>{framecolor}</li>
+                            <li key={subIndex}>
+                              {" "}
+                              <a
+                                href="/advanced-search"
+                                className="hover:text-PictonBlue"
+                              >
+                                {framecolor}{" "}
+                              </a>
+                            </li>
                           )
                         )}
                       </ul>
@@ -469,7 +683,15 @@ const Header = () => {
                       <ul>
                         {item.data?.framestyle.framestyleheading.map(
                           (framestyle, subIndex) => (
-                            <li key={subIndex}>{framestyle}</li>
+                            <li key={subIndex}>
+                              {" "}
+                              <a
+                                href="/advanced-search"
+                                className="hover:text-PictonBlue"
+                              >
+                                {framestyle}{" "}
+                              </a>
+                            </li>
                           )
                         )}
                       </ul>
@@ -478,14 +700,30 @@ const Header = () => {
                       <h1 className="font-bold text-black">
                         {item.data?.frameshape.submenuData.map(
                           (frameshape, index) => (
-                            <h1 key={index}>{frameshape}</h1>
+                            <h1 key={index}>
+                              {" "}
+                              <a
+                                href="/advanced-search"
+                                className="hover:text-PictonBlue"
+                              >
+                                {frameshape}{" "}
+                              </a>
+                            </h1>
                           )
                         )}
                       </h1>
                       <ul>
                         {item.data?.frameshape.frameshapeheading.map(
                           (frameshape, subIndex) => (
-                            <li key={subIndex}>{frameshape}</li>
+                            <li key={subIndex}>
+                              {" "}
+                              <a
+                                href="/advanced-search"
+                                className="hover:text-PictonBlue"
+                              >
+                                {frameshape}{" "}
+                              </a>
+                            </li>
                           )
                         )}
                       </ul>
