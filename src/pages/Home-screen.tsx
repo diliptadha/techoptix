@@ -718,6 +718,7 @@ const Homescreen: React.FC = () => {
                         <StarRating rating={currentItem.rating} />
                         <div className="flex space-x-4 mt-4 items-center">
                           <button
+                            disabled={true}
                             onClick={() =>
                               addToCart(
                                 isLoggedIn,

@@ -46,7 +46,7 @@ const Profile = () => {
   return (
     <div className="max-w-screen-2xl m-auto">
       <div>
-        <Header setSearch={setSearch} />
+        <Header />
         <div className=" mt-10 bg-[#f2f2f2] border-t-[1.5px] border-gray-300 border-x-[1.5px] xs:mx-[20px] xl:mx-[70px] rounded-t-lg p-7">
           <div className="flex items-center justify-between ">
             <Image

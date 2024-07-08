@@ -736,7 +736,7 @@ const ProductDetails = () => {
   return (
     <>
       <div>
-        <Header setSearch={setSearch} />
+        <Header />
         {selectedSubProduct && (
           <div className="bg-white px-[2rem] py-[2rem] md:px-[3rem] xl:px-[6rem] p-black mx-auto- md:w-[50%]- lg:w-full-">
             <div className="p-1 bg-white w-full text-lato text-[14px] ">
@@ -825,6 +825,7 @@ const ProductDetails = () => {
                     </p>
                     <div className="flex justify-end">
                       <button
+                        disabled={true}
                         className=""
                         onClick={() =>
                           handleToggleFavorite(
@@ -1042,6 +1043,7 @@ const ProductDetails = () => {
                   {/* addto cart button  */}
                   <div className="mt-2 lg:mt-4 flex flex-row items-center">
                     <button
+                      disabled={true}
                       onClick={() => addToCart()}
                       className="w-[136px] h-38 rounded-md text-sm text-black bg-white flex items-center justify-center border border-black outline-none px-2 lg:px-4 py-2 hover:text-PictonBlue hover:border-PictonBlue hover:font-bold"
                     >
@@ -1055,6 +1057,7 @@ const ProductDetails = () => {
                     />
 
                     <button
+                      disabled={true}
                       onClick={() => handleBuyNow()}
                       className="ml-2 lg:ml-4 w-[136px] h-38 rounded-md text-sm text-white bg-black flex items-center justify-center border-none px-2 lg:px-4 py-2 hover:bg-PictonBlue"
                     >

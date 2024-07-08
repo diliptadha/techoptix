@@ -14,7 +14,7 @@ const StoreLocation = () => {
   const [search, setSearch] = useState("");
   return (
     <>
-      <Header setSearch={setSearch} />
+      <Header />
       <div className=" px-[2rem] py-[2rem] md:px-[3rem] xl:px-[6rem]">
         {data.store.length > 0 ? (
           data.store.map((ele, index) => (

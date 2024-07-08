@@ -343,7 +343,7 @@ const Header = () => {
         <div className="xs:space-x-3 sm:space-x-4 flex items-center">
           <div className="relative">
             <input
-              className="xs:text-sm md:text-base bg-[#E5E5E4] outline-none xs:w-[260px] md:w-56 h-10 p-4 rounded-[10px] flex items-center"
+              className="xs:text-sm md:text-base bg-[#E5E5E4] z-index1 outline-none xs:w-[260px] md:w-56 h-10 p-4 rounded-[10px] flex items-center"
               style={{ paddingRight: "2.5rem" }}
             />
             <Image
@@ -411,7 +411,7 @@ const Header = () => {
               item.megaMenuOpen && (
                 <div
                   key={index}
-                  className="w-[700px] h-auto bg-[#F2F2F2] absolute top-56 p-5 rounded-[10px] shadow-md"
+                  className="w-[700px] h-auto bg-[#F2F2F2] z-index1 absolute top-56 p-5 rounded-[10px] shadow-md"
                 >
                   <div className="flex justify-between font-normal">
                     <div>
