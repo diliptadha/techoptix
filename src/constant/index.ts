@@ -161,7 +161,7 @@ export const Strings = {
   SUBSCRIBE_NEWSLETTER: "SUBSCRIBE TO OUR NEWSLETTER",
   NEED_HELP: "NEED HELP?",
   CALL_US: "CALL US ON",
-  PHONE: " +91 82912 51241",
+  PHONE: " +91 93213 08640",
   FAQ: "FAQs",
   TERMS: "Terms & Conditions",
   PRIVACY: "Privacy Policy",

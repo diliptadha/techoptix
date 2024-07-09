@@ -261,7 +261,7 @@ export const Footer = () => {
                   {Strings.CALL_US}
                 </div>
                 <Link
-                  href="tel: +91 8291251241"
+                  href="tel: +91 9321308640"
                   className={
                     "font-lato font-bold text-14 hover:text-PictonBlue "
                   }

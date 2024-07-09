@@ -146,7 +146,7 @@ const Contactus = () => {
               </a>
             </p> */}
             <p>
-              <a href="tel:+918291251241" className="text-blue-400">
+              <a href="tel:+919321308640" className="text-blue-400">
                 {ContactUs.MOBILE_NO}
               </a>
             </p>
