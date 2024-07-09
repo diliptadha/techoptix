@@ -140,7 +140,7 @@ export const Strings = {
   THE_BEST_GUARANTEES: "THE BEST GUARANTEES.",
   PARAGRAPH1:
     "Lorem ipsum dolor sit amet consectetur adipisicing sum dolor sit amet consectetu sectetur adipisici sectetur adipisici ipsum dolor sit amet consectetur adipisicing sum dolor sit amet consectetu sectetur adipisici sectetur  consectetu sectetur adipisici sectetu.",
-  BRANCHES: "KEMPS CORNER | DADAR | JUHU | ANDHERI",
+  BRANCHES: "CHEMBUR",
   ALL_RIGHTS: "2024 TECHOPTIX | All Rights Reserved",
   SERVICES: "SERVICES",
   EYE_TESTING: "EYE TESTING",

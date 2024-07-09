@@ -273,10 +273,11 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-
-      <div className="mt-4 lg:mt-8 font-lato text-12 font-bold text-white">
-        {Strings.BRANCHES}
-      </div>
+      <Link href={`/store-location`}>
+        <div className="mt-4 lg:mt-8 font-lato text-12 font-bold text-white">
+          {Strings.BRANCHES}
+        </div>{" "}
+      </Link>
       <div className="h-[1px] md:mx-0 md:w-full bg-white rounded-xl mt-3"></div>
       <div className="flex flex-col lg:flex-row mt-2">
         <div className="flex xs:flex-col- lg:flex-row- xs:justify-start- lg:justify-start- lg:flex-auto- font-lato text-white font-light text-12">
