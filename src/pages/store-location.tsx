@@ -14,7 +14,7 @@ const StoreLocation = () => {
   const [search, setSearch] = useState("");
   return (
     <>
-   <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} />
       <div className=" px-[2rem] py-[2rem] md:px-[3rem] xl:px-[6rem]">
         {data.store.length > 0 ? (
           data.store.map((ele, index) => (
@@ -26,7 +26,7 @@ const StoreLocation = () => {
                 <img
                   src={ele.storeImg}
                   alt="shopImage"
-                  className="w-[100%] h-[100%] rounded-[4px]"
+                  className="w-[100%] h-[100%] rounded-[4px] object-cover"
                 />
               </div>
               <div className="flex-1">

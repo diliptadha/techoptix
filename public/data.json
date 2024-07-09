@@ -2,30 +2,12 @@
   "store": [
     {
       "id": 1,
-      "name": "Iksana opticals",
-      "address": "Gulmohar Cross Rd Number 6, near irla masjid, Junaid Nagar, Navpada, JVPD Scheme, Andheri West, Mumbai, Maharashtra 400058",
+      "name": "TechOptix ",
+      "address": "ZEISS VISION CENTER Chembur - by Techoptix, Central Avenue, Chembur, Mumbai, Maharashtra, India ",
       "rating": 5,
-      "timing": "Hours: 10:00 AM to 06:30 PM",
-      "number": 7977994474,
-      "storeImg": "/Images/ikshana_store1_img.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Iksana opticals",
-      "address": "Elixir Eye Clinic, 811, Kohinoor square, N C. Kelkar Marg, opposite Shiv Sena Bhavan, Dadar West, Mumbai, Maharashtra 400028",
-      "rating": 5,
-      "timing": "Hours: 11:00 AM to 07:00 PM",
-      "number": 7977994474,
-      "storeImg": "/Images/ikshana_store2_img.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Iksana opticals",
-      "address": "Eye Solutions, 151D, August Kranti Rd, Kemps Corner, Malabar Hill, Mumbai, Maharashtra 400036",
-      "rating": 4.9,
-      "timing": "Hours: 10:00 AM to 06:00 PM",
-      "number": 8291251241,
-      "storeImg": "/Images/ikshana_store3_img.jpg"
+      "timing": "Hours: 10:30 am - 10:00 pm",
+      "number": 9321308640,
+      "storeImg": "https://storage.googleapis.com/iksana_opticals/store/glasses-with-slightly-rounded-frame_23-2150670726.jpg?GoogleAccessId=iksana-opticals-llp%40iksana-opticals-llp.iam.gserviceaccount.com&Expires=16446997800&Signature=djQcVGBxoW3RhTh5VUjL5ywWiBcywrNfLVehg2jpC0pHCxRVSMYaFXjjao62yZ3dxvVq42SpIJVAkHDibeJ4OwAHMFSUP3apk4AyLEM5Q4OyVjT3fjs%2BbzQAEBZiT%2Bx4YiSXZ0oio2rkFMMuCkBdVMxOp5iaXqNgJFDkm%2BxzQibCi18l0bmQVf%2FA5uxwcErKBKr%2FjimJdWd0P66scL2dJvC07jpf%2BW%2Fatvwzdwd%2BQal6ZLHl4kKHYleYi7txMfPug9l8dBhvpVr9OyPD%2BH3CbgECdf6PO6tkGGmp7wDKQXj4yxPjauekaC8aA12Q7M54rnK%2FobHFruPLJ3PJlH7%2FEw%3D%3D"
     }
   ],
   "ProductList": [

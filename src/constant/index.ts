@@ -122,10 +122,13 @@ export const Images = {
   profile: "/Images/profile.png",
   Iksana_Eye_Logo: "/Images/iksana_eye_logo.png",
   vector: "/Images/Vector13.png",
+  Untitled1: "/Images/Untitled1.png",
 };
 
 export const Strings = {
   MEDIUM: "Medium",
+  Chambur: "Chambur",
+  Techoptics: "Techoptics",
   COUPONS: "Coupons",
   YOUR_CART_EMPTY: "Your shopping cart is empty!",
   ADD_ITEMS_NOW: "Add items to it now",
@@ -1322,14 +1325,15 @@ export const ContactUs = {
   CONTACT_US: "Contact Us",
   FORM: "Fill the below form & you’ll hear from us within 48 hours!",
   OUR_LOCATION: "Our Location:",
-  ADDRESS: "151-D, August Kranti Marg, Mumbai, Maharashtra - 400036",
+  ADDRESS:
+    "ZEISS VISION CENTER , Central Avenue, Chembur, Mumbai, Maharashtra, India ",
   EMAIL: "Email:",
   EMAIL_ID: "eyesolutions@iksanaopticals.in",
-  SUPPORT_EMAIL: "support@iksanaopticals.in",
+  SUPPORT_EMAIL: "support@techoptix.in",
   AVAILABLE: "Available 24/7",
   PHONE_NO: "Phone No:",
-  MOBILE_NO: "Mobile No: 8291251241",
-  WHATSAPP_NO: "Whatsapp No: 7977994474",
-  TIMING_1: "10 AM to 6 PM ( Monday to Friday )",
+  MOBILE_NO: "Mobile No: 9321308640",
+  WHATSAPP_NO: "Whatsapp No: 9321308640",
+  TIMING_1: "10:30 am - 10:00 pm",
   TIMING_2: "9 AM to 4 PM ( Saturday )",
 };

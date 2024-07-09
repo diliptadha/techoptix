@@ -118,7 +118,7 @@ const Contactus = () => {
         <div className="m-1 flex flex-col justify-center gap-3 px-8 py-5">
           <div>
             <h3 className=" text-lg font-bold">{ContactUs.OUR_LOCATION}</h3>
-            <p>{ContactUs.ADDRESS}</p>
+            <p className="line-clamp-2">{ContactUs.ADDRESS}</p>
           </div>
           <div>
             <h3 className=" text-lg font-bold">{ContactUs.EMAIL}</h3>
@@ -131,14 +131,12 @@ const Contactus = () => {
             <a
               href="mailto:eyesolutions@iksanaopticals.in"
               className="block text-blue-400"
-            >
-              {ContactUs.EMAIL_ID}
-            </a>
+            ></a>
             <p>{ContactUs.AVAILABLE}</p>
           </div>
           <div>
             <h3 className=" text-lg font-bold">{ContactUs.PHONE_NO}</h3>
-            <p>
+            {/* <p>
               <a
                 href="https://wa.me/7977994474"
                 target="_blank"
@@ -146,14 +144,13 @@ const Contactus = () => {
               >
                 {ContactUs.WHATSAPP_NO}
               </a>
-            </p>
+            </p> */}
             <p>
               <a href="tel:+918291251241" className="text-blue-400">
                 {ContactUs.MOBILE_NO}
               </a>
             </p>
             <p>{ContactUs.TIMING_1}</p>
-            <p>{ContactUs.TIMING_2}</p>
           </div>
         </div>
       </div>

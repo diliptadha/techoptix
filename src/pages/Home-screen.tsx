@@ -835,9 +835,28 @@ const Homescreen: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center xs:mt-10 md:mt-14 xs:mx-[20px] xlg:mx-0">
-          <Image src={Images.iksanabanner3} alt="/" height={285} width={1278} />
+        <div className="flex items-center justify-center xs:mt-10 md:mt-14 xs:mx-[20px] xlg:mx-0">
+          <div className="relative flex items-end justify-end">
+            <Image
+              src={Images.Untitled1}
+              alt="/"
+              height={285}
+              width={1278}
+              className=""
+            />
+            <div className="absolute text-center xs:my-2 md:my-5 lg:my-12 xl:my-16 xs:mr-2 sm:mr-7 md:mr-10 lg:mr-16 xl:mr-20  xs:text-[4px] md:text-[8px] lg:text-xs xl:text-sm font-bold text-white">
+              <div className="font-extrabold xs:text-lg md:text-4xl text-white">
+                {Strings.Techoptics}
+              </div>
+              <div className="mt-2">
+                <Link href={`/store-location`}>
+                  <h1> {Strings.Chambur}</h1>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
+
         {getContent.map((content, index) => {
           if (index === 1) {
             return (
