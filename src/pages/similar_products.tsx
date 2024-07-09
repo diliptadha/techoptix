@@ -7,6 +7,7 @@ import Image from "next/image";
 import Loader from "@/Component/Loader";
 import SimilarProduct from "@/Component/SimilarProduct";
 import axios from "axios";
+import data from "../../public/data.json";
 import { useRouter } from "next/router";
 
 interface ProductData {
@@ -38,9 +39,6 @@ interface ProductData {
 const SimilarProductPage = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef2 = useRef<HTMLDivElement>(null);
-  const [similarProductData, setSimilarProductData] = useState<ProductData[]>(
-    []
-  );
 
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [email, setEmail] = useState("");
@@ -76,22 +74,6 @@ const SimilarProductPage = () => {
   let productId: string | null;
   useEffect(() => {
     productId = localStorage.getItem("productId");
-  }, []);
-
-  useEffect(() => {
-    async function fetchSimilarProductData() {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}product/getSimilarProductData?productId=${productId}`
-        );
-        const similarProductData = response.data.similarProductData;
-        setSimilarProductData(similarProductData);
-      } catch (error) {
-        console.error("Error fetching similar product data:", error);
-      }
-    }
-
-    fetchSimilarProductData();
   }, []);
 
   const handleScrollRight2 = () => {
@@ -389,17 +371,17 @@ const SimilarProductPage = () => {
               </div>
             </div>
           </div> */}
-          {similarProductData &&
-            Array.isArray(similarProductData) &&
-            similarProductData.map((product, index) => (
+          {data.similarProductData &&
+            data.similarProductData.map((product, index) => (
               <SimilarProduct
                 key={product.productId}
-                productImage={product.productImage}
-                title={product.title}
-                description={product.description}
-                salePrice={`₹ ${product.salePrice?.toLocaleString("en-IN")}`}
-                rating={product.rating}
-                color={product.color}
+                productImage={product.data.productImage}
+                title={product.data.title}
+                salePrice={`₹ ${product.data.salePrice?.toLocaleString(
+                  "en-IN"
+                )}`}
+                rating={product.data.rating}
+                color={product.data.color}
                 productId={product.productId}
                 showLoginModal={showLoginModal}
                 isAuthenticated={isAuthenticated}
@@ -407,7 +389,7 @@ const SimilarProductPage = () => {
                   handleToggleFavorite(product.productId)
                 }
                 isFavorite={favoriteStatus[product.productId] || false}
-                // isBestseller={index === 3}
+                description={""} // isBestseller={index === 3}
               />
             ))}
 

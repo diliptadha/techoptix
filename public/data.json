@@ -75,5 +75,112 @@
         "otherColors": ["#76DBB7", "#FCB76E", "#FCG76E", "#9D0B31"]
       }
     }
+  ],
+  "similarProductData": [
+    {
+      "productId": "RD27-I-MTL",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#C0C0C0",
+        "productImage": "https://cdn.shopify.com/s/files/1/0655/2846/3581/products/IKSANA-READING-SILVER_1.50-49.jpg?v=1671703554",
+        "title": "IKSANA-READERS USL 150",
+        "rating": 2,
+        "salePrice": 500,
+        "brands": "Scott",
+        "SKU": "RD27-USL150PS49",
+        "frameShape": "RECTANGLE",
+        "frameMaterial": "METAL",
+        "frameStyle": "Full Rim",
+        "frameSize": 49,
+        "frameColor": "Silver",
+        "category": "Reading Glasses",
+        "gender": "Unisex",
+        "otherColors": ["#8D918D", "#964B00", "#000000", "#0000FF"]
+      }
+    },
+    {
+      "productId": "EG25HT993",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#800000",
+        "productImage": "https://cdn.shopify.com/s/files/1/0655/2846/3581/products/ZHC-HT993-WINE-51-1.jpg?v=1671701974",
+        "title": "ZHC-HT993",
+        "rating": 3,
+        "salePrice": 600,
+        "brands": "ZHC",
+        "SKU": "EG25-WN-W355-S51",
+        "frameShape": "RECTANGLE",
+        "frameMaterial": "ACETATE",
+        "frameStyle": "Full Rim",
+        "frameSize": 51,
+        "frameColor": "Wine",
+        "category": "Eye Glasses",
+        "gender": "Women",
+        "otherColors": ["#000000"]
+      }
+    },
+    {
+      "productId": "EG25HT994",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#800000",
+        "productImage": "/Images/CANNA-2068-BROWN TORTOISE-52-2.png",
+        "title": "ZHC-HT994",
+        "rating": 3,
+        "salePrice": 800,
+        "brands": "ZHC",
+        "SKU": "EG25-WN-W355-S51",
+        "frameShape": "RECTANGLE",
+        "frameMaterial": "ACETATE",
+        "frameStyle": "Full Rim",
+        "frameSize": 51,
+        "frameColor": "Wine",
+        "category": "Eye Glasses",
+        "gender": "Women",
+        "otherColors": ["#000000"]
+      }
+    },
+    {
+      "productId": "EG25HT995",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#800000",
+        "productImage": "https://cdn.shopify.com/s/files/1/0655/2846/3581/products/ZHC-HT993-WINE-51-1.jpg?v=1671701974",
+        "title": "ZHC-HT995",
+        "rating": 3,
+        "salePrice": 700,
+        "brands": "ZHC",
+        "SKU": "EG25-WN-W355-S51",
+        "frameShape": "RECTANGLE",
+        "frameMaterial": "ACETATE",
+        "frameStyle": "Full Rim",
+        "frameSize": 51,
+        "frameColor": "Wine",
+        "category": "Eye Glasses",
+        "gender": "Women",
+        "otherColors": ["#000000"]
+      }
+    },
+    {
+      "productId": "EG25HT996",
+      "data": {
+        "subProductId": "PS0000001",
+        "color": "#800000",
+        "productImage": "https://cdn.shopify.com/s/files/1/0655/2846/3581/products/ZHC-HT993-WINE-51-1.jpg?v=1671701974",
+        "title": "ZHC-HT996",
+        "rating": 3,
+        "salePrice": 550,
+        "brands": "ZHC",
+        "SKU": "EG25-WN-W355-S51",
+        "frameShape": "RECTANGLE",
+        "frameMaterial": "ACETATE",
+        "frameStyle": "Full Rim",
+        "frameSize": 51,
+        "frameColor": "Wine",
+        "category": "Eye Glasses",
+        "gender": "Women",
+        "otherColors": ["#000000"]
+      }
+    }
   ]
 }

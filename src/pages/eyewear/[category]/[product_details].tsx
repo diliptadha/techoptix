@@ -1579,9 +1579,9 @@ const ProductDetails = () => {
             </div>
           </div>
         )}
-        {/* <div style={{ marginTop: isOpenReview ? nextDivMarginTop : "40px" }}>
+        <div style={{ marginTop: isOpenReview ? nextDivMarginTop : "40px" }}>
           <SimilarProductPage />
-        </div> */}
+        </div>
         <div className="my-10 flex justify-end xs:mx-[20px] lg:*:mx-[72px]">
           <div className="space-y-2 ">
             <button
