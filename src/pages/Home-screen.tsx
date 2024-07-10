@@ -596,7 +596,7 @@ const Homescreen: React.FC = () => {
           </h1> */}
 
           <Tab.Group>
-            <Tab.List className="mt-3 flex xs:space-x-2 md:space-x-16 flex-wrap border-b border-black relative">
+            {/* <Tab.List className="mt-3 flex xs:space-x-2 md:space-x-16 flex-wrap border-b border-black relative">
               {Array.isArray(selectedGender) &&
                 selectedGender.map((gender, index) => (
                   <Tab as={Fragment} key={index}>
@@ -613,7 +613,7 @@ const Homescreen: React.FC = () => {
                     )}
                   </Tab>
                 ))}
-            </Tab.List>
+            </Tab.List> */}
             <Tab.Panels>
               {/* <Tab.Panel className={""}>
                 <div className="mt-5 xs:overflow-x-auto xs:space-x-4  xl:space-x-16 flex xl:justify-between lg:no-scrollbar">
@@ -850,7 +850,7 @@ const Homescreen: React.FC = () => {
               </div>
               <div className="mt-2">
                 <Link href={`/store-location`}>
-                  <h1> {Strings.Chambur}</h1>
+                  <h1> {Strings.Chembur}</h1>
                 </Link>
               </div>
             </div>
@@ -1057,10 +1057,10 @@ const Homescreen: React.FC = () => {
               >
                 <Image src={Images.Upicon} alt="/" height={16} width={16} />
               </button>
-              <WhatsAppButton
+              {/* <WhatsAppButton
                 phoneNumber={Strings.Whatsapp_No}
                 message="Hello, I would like to know more about your services."
-              />
+              /> */}
             </div>
           </div>
         </div>

@@ -122,14 +122,11 @@ const Contactus = () => {
           </div>
           <div>
             <h3 className=" text-lg font-bold">{ContactUs.EMAIL}</h3>
-            <a
-              href="mailto:support@iksanaopticals.in"
-              className="text-blue-400"
-            >
+            <a href="mailto:support@opticals.in" className="text-blue-400">
               {ContactUs.SUPPORT_EMAIL}
             </a>
             <a
-              href="mailto:eyesolutions@iksanaopticals.in"
+              href="mailto:eyesolutions@opticals.in"
               className="block text-blue-400"
             ></a>
             <p>{ContactUs.AVAILABLE}</p>

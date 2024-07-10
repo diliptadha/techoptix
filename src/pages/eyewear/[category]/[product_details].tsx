@@ -1590,10 +1590,10 @@ const ProductDetails = () => {
             >
               <Image src={Images.Upicon} alt="/" height={16} width={16} />
             </button>
-            <WhatsAppButton
+            {/* <WhatsAppButton
               phoneNumber={Strings.Whatsapp_No}
               message="Hello, I would like to know more about your services."
-            />
+            /> */}
           </div>
         </div>
         <Footer />

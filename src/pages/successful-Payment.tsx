@@ -149,7 +149,7 @@ const SuccessPayment = () => {
                 </span>{" "}
                 or Call us on :{" "}
                 <span className="font-semibold text-[13px]">
-                  <a href="tel:-">{Faqs.IKSANA_NUMBER_7977}</a>
+                  <a href="tel:-">{Faqs.Number}</a>
                 </span>
               </h3>
             </div>

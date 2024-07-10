@@ -127,7 +127,7 @@ export const Images = {
 
 export const Strings = {
   MEDIUM: "Medium",
-  Chambur: "Chambur",
+  Chembur: "Chembur",
   Techoptics: "Techoptics",
   COUPONS: "Coupons",
   YOUR_CART_EMPTY: "Your shopping cart is empty!",
@@ -1132,7 +1132,7 @@ export const Faqs = {
     "Our business will evolve constantly. So will our policies & terms of membership. The use of information that we gather is subject to the privacy policy in effect at the time of use. We may email you periodic reminders of our policies & terms & conditions, unless you have instructed us not to. We strongly recommend that you check our app/website frequently to see recent changes/updates.",
 
   //Faq
-
+  Number: "9321308640",
   F_H1: "How do I know what is the right size & fit of frame for me?",
   F_P1_1:
     "We offer glasses in 5 frame sizes: Extra-Narrow, Narrow, Medium, Wide & Extra-Wide. Click ",
@@ -1314,7 +1314,7 @@ export const Faqs = {
   NEED_MORE_HELP_ANS:
     "Still have unanswered questions? Don’t worry! Our experts are always here to help.",
 
-  SUPPORT_EMAIL_ID: " support@iksanaopticals.in ",
+  SUPPORT_EMAIL_ID: "support@techoptix.in",
   EYE_EMAIL_ID: " eyesolutions@iksanaopticals.in ",
   IKSANA_NUMBER_7977: " 7977994474 ",
   IKSANA_NUM_8291: " 8291251241 ",

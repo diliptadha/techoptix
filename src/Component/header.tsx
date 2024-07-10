@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
         brands: {
           submenuData: ["Brands"],
           brandsheading: [
-            "Iksana",
+            "",
             "Tom Ford",
             "Maybach",
             "Scott",
@@ -134,7 +134,7 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
         brands: {
           submenuData: ["Brands"],
           brandsheading: [
-            "Iksana",
+            "",
             "Tom Ford",
             "Maybach",
             "Scott",
@@ -214,7 +214,14 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
         },
         brands: {
           submenuData: ["Brands"],
-          brandsheading: [],
+          brandsheading: [
+            "Johnson & johnson",
+            "  Bausch and lomb",
+            "     Alcon",
+            "  Cooper vision",
+            "Seed",
+            "   Celebration",
+          ],
         },
         framecolor: {
           submenuData: ["Frame Color"],
@@ -504,9 +511,8 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
             <input
               className="xs:text-sm md:text-base text-black bg-[#E5E5E4] outline-none xs:w-[260px] md:w-56 h-10 p-4 rounded-[10px] flex items-center"
               style={{ paddingRight: "2.5rem" }}
-             
             />
-           
+
             <button
               disabled={search.trim() === ""}
               onClick={handleSearch}
@@ -522,11 +528,11 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
                 alt="/"
                 height={21}
                 width={19}
-                className="w-[24px]"
+                className="w-[2-4px]"
               />
             </button>
             <div className="rounded-full h-5 w-5 bg-[#FF4307] absolute top-0 right-[-7px] translate-x-0 translate-y-[-50%]">
-              <span className="absolute text-[11px] top-[50%] right-[50%] text-white translate-x-[50%] translate-y-[-50%]">
+              <span className="absolute text-[14px] top-[50%] right-[50%] text-white translate-x-[50%] translate-y-[-50%]">
                 {0}
               </span>
             </div>
@@ -580,133 +586,148 @@ const Header: React.FC<HeaderProps> = ({ setSearch }) => {
               item.megaMenuOpen && (
                 <div
                   key={index}
-                  className="w-[700px] h-auto bg-[#F2F2F2] z-index1 absolute top-64 p-5 rounded-[10px] shadow-md"
+                  className="w-auto h-auto bg-[#F2F2F2] z-index1 absolute top-64 p-5 rounded-[10px] shadow-md"
                   onMouseLeave={() => toggleMegaMenu(index)}
                 >
-                  <div className="flex justify-between font-normal">
-                    <div>
-                      <h1 className="font-bold text-black ">
-                        {item.data?.gender.submenuData.map((gender, index) => (
-                          <h1 key={index}>{gender}</h1>
-                        ))}
-                      </h1>
-                      <ul>
-                        {item.data?.gender.genderheading.map(
-                          (gender, subIndex) => (
-                            <li key={subIndex}>
-                              <a
-                                href="/advanced-search"
-                                className="hover:text-PictonBlue"
-                              >
-                                {gender}
-                              </a>
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                    <div>
-                      <h1 className="font-bold text-black">
-                        {item.data?.brands.submenuData.map((brands, index) => (
-                          <h1 key={index}>{brands}</h1>
-                        ))}
-                      </h1>
-                      <ul>
-                        {item.data?.brands.brandsheading.map(
-                          (brands, subIndex) => (
-                            <li key={subIndex}>
-                              {" "}
-                              <a
-                                href="/advanced-search"
-                                className="hover:text-PictonBlue"
-                              >
-                                {brands}{" "}
-                              </a>
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                    <div>
-                      <h1 className="font-bold text-black">
-                        {item.data?.framecolor.submenuData.map(
-                          (framecolor, index) => (
-                            <h1 key={index}>{framecolor}</h1>
-                          )
-                        )}
-                      </h1>
-                      <ul>
-                        {item.data?.framecolor.framecolorheading.map(
-                          (framecolor, subIndex) => (
-                            <li key={subIndex}>
-                              {" "}
-                              <a
-                                href="/advanced-search"
-                                className="hover:text-PictonBlue"
-                              >
-                                {framecolor}{" "}
-                              </a>
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                    <div>
-                      <h1 className="font-bold text-black">
-                        {item.data?.framestyle.submenuData.map(
-                          (framestyle, index) => (
-                            <h1 key={index}>{framestyle}</h1>
-                          )
-                        )}
-                      </h1>
-                      <ul>
-                        {item.data?.framestyle.framestyleheading.map(
-                          (framestyle, subIndex) => (
-                            <li key={subIndex}>
-                              {" "}
-                              <a
-                                href="/advanced-search"
-                                className="hover:text-PictonBlue"
-                              >
-                                {framestyle}{" "}
-                              </a>
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                    <div>
-                      <h1 className="font-bold text-black">
-                        {item.data?.frameshape.submenuData.map(
-                          (frameshape, index) => (
-                            <h1 key={index}>
-                              {" "}
-                              <a
-                                href="/advanced-search"
-                                className="hover:text-PictonBlue"
-                              >
-                                {frameshape}{" "}
-                              </a>
-                            </h1>
-                          )
-                        )}
-                      </h1>
-                      <ul>
-                        {item.data?.frameshape.frameshapeheading.map(
-                          (frameshape, subIndex) => (
-                            <li key={subIndex}>
-                              {" "}
-                              <a
-                                href="/advanced-search"
-                                className="hover:text-PictonBlue"
-                              >
-                                {frameshape}{" "}
-                              </a>
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </div>
+                  <div
+                    className={`flex text-base ${
+                      item.data?.gender.genderheading.length === 0 &&
+                      item.data?.framestyle.framestyleheading.length === 0 &&
+                      item.data?.frameshape.frameshapeheading.length === 0 &&
+                      item.data?.framecolor.framecolorheading.length === 0
+                        ? "gap-x-2"
+                        : "gap-x-20"
+                    } font-normal`}
+                  >
+                    {item.data?.gender.genderheading.length > 0 && (
+                      <div>
+                        <h1 className="font-bold text-black ">
+                          {item.data?.gender.submenuData.map(
+                            (gender, index) => (
+                              <h1 key={index}>{gender}</h1>
+                            )
+                          )}
+                        </h1>
+                        <ul className="space-y-[-4px]">
+                          {item.data?.gender.genderheading.map(
+                            (gender, subIndex) => (
+                              <li key={subIndex}>
+                                <a
+                                  href="/advanced-search"
+                                  className="hover:text-PictonBlue cursor-pointer text-black font-medium text-xs"
+                                >
+                                  {gender}
+                                </a>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                    {item.data?.brands.brandsheading.length > 0 && (
+                      <div>
+                        <h1 className="font-bold text-black">
+                          {item.data?.brands.submenuData.map(
+                            (brands, index) => (
+                              <h1 key={index}>{brands}</h1>
+                            )
+                          )}
+                        </h1>
+                        <ul className="space-y-[-4px]">
+                          {item.data?.brands.brandsheading.map(
+                            (brands, subIndex) => (
+                              <li key={subIndex}>
+                                {" "}
+                                <a
+                                  href="/advanced-search"
+                                  className="hover:text-PictonBlue cursor-pointer text-black font-medium text-xs"
+                                >
+                                  {brands}{" "}
+                                </a>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                    {item.data?.framecolor.framecolorheading.length > 0 && (
+                      <div>
+                        <h1 className="font-bold text-black">
+                          {item.data?.framecolor.submenuData.map(
+                            (framecolor, index) => (
+                              <h1 key={index}>{framecolor}</h1>
+                            )
+                          )}
+                        </h1>
+                        <ul className="space-y-[-4px]">
+                          {item.data?.framecolor.framecolorheading.map(
+                            (framecolor, subIndex) => (
+                              <li key={subIndex}>
+                                {" "}
+                                <a
+                                  href="/advanced-search"
+                                  className="hover:text-PictonBlue cursor-pointer text-black font-medium text-xs"
+                                >
+                                  {framecolor}{" "}
+                                </a>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                    {item.data?.framestyle.framestyleheading.length > 0 && (
+                      <div>
+                        <h1 className="font-bold text-black">
+                          {item.data?.framestyle.submenuData.map(
+                            (framestyle, index) => (
+                              <h1 key={index}>{framestyle}</h1>
+                            )
+                          )}
+                        </h1>
+                        <ul className="space-y-[-4px]">
+                          {item.data?.framestyle.framestyleheading.map(
+                            (framestyle, subIndex) => (
+                              <li key={subIndex}>
+                                {" "}
+                                <a
+                                  href="/advanced-search"
+                                  className="hover:text-PictonBlue cursor-pointer text-black font-medium text-xs"
+                                >
+                                  {framestyle}{" "}
+                                </a>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                    {item.data?.frameshape.frameshapeheading.length > 0 && (
+                      <div>
+                        <h1 className="font-bold text-black">
+                          {item.data?.frameshape.submenuData.map(
+                            (frameshape, index) => (
+                              <h1 key={index}> {frameshape}</h1>
+                            )
+                          )}
+                        </h1>
+                        <ul className="space-y-[-4px]">
+                          {item.data?.frameshape.frameshapeheading.map(
+                            (frameshape, subIndex) => (
+                              <li key={subIndex}>
+                                {" "}
+                                <a
+                                  href="/advanced-search"
+                                  className="hover:text-PictonBlue cursor-pointer text-black font-medium text-xs"
+                                >
+                                  {frameshape}{" "}
+                                </a>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
               )
