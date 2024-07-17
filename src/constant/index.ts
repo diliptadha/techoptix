@@ -128,7 +128,7 @@ export const Images = {
 export const Strings = {
   MEDIUM: "Medium",
   Chembur: "Chembur",
-  Techoptics: "Techoptics",
+  Techoptics: "Techoptix",
   COUPONS: "Coupons",
   YOUR_CART_EMPTY: "Your shopping cart is empty!",
   ADD_ITEMS_NOW: "Add items to it now",
