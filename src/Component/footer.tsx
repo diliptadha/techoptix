@@ -78,9 +78,9 @@ export const Footer = () => {
             <div>{Strings.THE_BEST_QUALITY}</div>
             <div>{Strings.THE_BEST_GUARANTEES}</div>
           </div>
-          <div className="mt-4 font-lato text-[14px] text-white font-light">
+          {/* <div className="mt-4 font-lato text-[14px] text-white font-light">
             {Strings.PARAGRAPH1}
-          </div>
+          </div> */}
         </div>
 
         <div className="flex flex-col   text-white mt-6 lg:mt-8 xs:ml-2 lg:ml-14 xl:ml-20  lg:w-[470px] xl:w-[600px]">
